@@ -1,0 +1,51 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="cantainer">
+    {% load static %}
+<h1>Vishnu Portfolio</h1>
+
+<div class="row justify-content-center my-3">
+  <div class="col-5">
+   <center> <img src="{% static 'portfolio/39.jpg' %}" class="img-fluid" width="40%" height="40%"> </center>
+  </div>
+</div>
+    
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">d
+    <h1 id="hometext" class="font-weight-bold">Vishnu is Python Developer at Strokx Technology and lives in kerala 😊</h1>
+  </div>
+</div>
+    <h2 class="mt-5">Portfolio</h2>
+<hr>
+<div class="row">
+  {% for project in projects %}
+  <div class="col-lg-4 col-md-6">
+
+    {% if project.url %}
+    <a href="{{ project.url }}">
+      <img src="{{ project.image.url }}" class="img-fluid mb-2" width="50%" height="10%" >
+    </a>
+    {% else %}
+
+    <img src="{{ project.image.url }}" class="img-fluid mb-2" width="60%" height="10%">
+    {% endif %}
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.description }}</p>
+
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
